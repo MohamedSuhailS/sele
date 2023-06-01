@@ -6,9 +6,7 @@ const bodyParser = require("body-parser")
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json()); // Body parser use JSON data
 const {Builder, Browser, By, Key, until} = require('selenium-webdriver');
-const cors = require('cors')
 
-app.use(cors())
 app.listen(PORT, () => {
     console.log(`Listening on POST: ${PORT}`);
 });
