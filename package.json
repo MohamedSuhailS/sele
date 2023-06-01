@@ -6,6 +6,7 @@
     "selenium-webdriver": "^4.9.2"
   },
   "devDependencies": {
+    "chromedriver": "^113.0.0",
     "nodemon": "^2.0.22"
   },
   "scripts": {
