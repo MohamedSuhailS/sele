@@ -1,7 +1,17 @@
-var express = require('express');  
-var app = express();  
-app.use(express.static('public'));  
+const express = require("express")
+const app = express();
+const route = express.Router();
+const PORT = 3000;
+const bodyParser = require("body-parser")
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json()); // Body parser use JSON data
 const {Builder, Browser, By, Key, until} = require('selenium-webdriver');
+const cors = require('cors')
+
+app.use(cors())
+app.listen(PORT, () => {
+    console.log(`Listening on POST: ${PORT}`);
+});
 
 
 app.get('/index', function (req, res) {  
@@ -16,19 +26,8 @@ app.get('/index', function (req, res) {
         }
       })();
       example();
-})  
-app.get('/process_get', function (req, res) {  
-response = {  
-       first_name:req.query.first_name,  
-       last_name:req.query.last_name  
-   };  
-   console.log(response);  
-   res.end(JSON.stringify(response));  
-})  
-var server = app.listen(8000, function () {  
-  
-  var host = server.address().address  
-  var port = server.address().port  
-  console.log("Example app listening at http://%s:%s", host, port)  
-  
-})  
+})
+app.get("/", async (request, response) => {
+      response.status(500).send("suhail");
+});
+module.exports=route; 
